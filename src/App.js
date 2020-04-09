@@ -3,6 +3,41 @@ import Buttons from "./components/buttons";
 
 const App = () => {
   const [seconds, setSeconds] = useState(60 * 25);
+  const [stopTimer, setStopTimer] = useState(true);
+
+  // COUNTDOWN
+  const countdown = () => {
+    // If start : decrease seconds
+    if (!stopTimer) {
+      setSeconds((sec) => {
+        // If seconds <= 0 : timer stop
+        if (sec <= 0) {
+          setStopTimer(true);
+          return sec;
+        }
+        return sec - 1;
+      });
+    } else {
+      // Stop timer
+      clearInterval(timerCountDown);
+    }
+  };
+
+  useEffect(() => {
+    let timerCountDown = setInterval(countdown, 1000);
+    return () => {
+      clearInterval(timerCountDown);
+    };
+  }, [stopTimer]);
+
+  // TOGGLE: START - STOP
+  const toggleTimer = () => {
+    if (stopTimer) {
+      setStopTimer(false);
+    } else {
+      setStopTimer(true);
+    }
+  };
 
   // INCREMENTATION
   const incrementSeconds = () => {
@@ -32,11 +67,15 @@ const App = () => {
         addOnClick={() => {
           incrementSeconds();
         }}
-        substractionOnClick={() => {
-          decrementSeconds();
+        toggleOnClick={() => {
+          toggleTimer();
         }}
+        value={stopTimer ? "Start" : "Stop"}
         resetOnClick={() => {
           resetTimer();
+        }}
+        substractionOnClick={() => {
+          decrementSeconds();
         }}
       />
     </div>
