@@ -11,7 +11,9 @@ const App = () => {
 
   // DECREMENTATION
   const decrementSeconds = () => {
-    setSeconds(seconds - 60);
+    if (seconds > 60) {
+      setSeconds(seconds - 60);
+    }
   };
 
   // RESET
