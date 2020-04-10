@@ -7,6 +7,8 @@ const App = () => {
   const [stopTimer, setStopTimer] = useState(true);
   const [breakTime, setBreakTime] = useState(false);
 
+  let $breakModal, timerCountDown;
+
   // COUNTDOWN
   const countdown = () => {
     // If start : decrease seconds
@@ -27,15 +29,15 @@ const App = () => {
   };
 
   useEffect(() => {
-    let timerCountDown = setInterval(countdown, 1000);
+    timerCountDown = setInterval(countdown, 1000);
     return () => {
       clearInterval(timerCountDown);
     };
   }, [stopTimer]);
 
-  let $modal;
+  // MODAL BREAK TIME
   if (breakTime) {
-    $modal = <BreakModal />;
+    $breakModal = <BreakModal />;
   }
 
   // TOGGLE: START - STOP
