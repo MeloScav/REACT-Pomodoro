@@ -18,7 +18,7 @@ const App = () => {
         return sec - 1;
       });
     } else {
-      // Stop timer
+      // timer stop
       clearInterval(timerCountDown);
     }
   };
@@ -53,6 +53,7 @@ const App = () => {
 
   // RESET
   const resetTimer = () => {
+    setStopTimer(true);
     setSeconds(60 * 25);
   };
 
