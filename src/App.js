@@ -41,12 +41,14 @@ const App = () => {
 
   // INCREMENTATION
   const incrementSeconds = () => {
-    setSeconds(seconds + 60);
+    if (stopTimer) {
+      setSeconds(seconds + 60);
+    }
   };
 
   // DECREMENTATION
   const decrementSeconds = () => {
-    if (seconds > 60) {
+    if ((seconds > 60) & stopTimer) {
       setSeconds(seconds - 60);
     }
   };
