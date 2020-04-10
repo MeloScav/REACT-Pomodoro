@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Buttons from "./components/buttons";
+import BreakModal from "./components/break-modal";
 
 const App = () => {
   const [seconds, setSeconds] = useState(60 * 25);
   const [stopTimer, setStopTimer] = useState(true);
+  const [breakTime, setBreakTime] = useState(false);
 
   // COUNTDOWN
   const countdown = () => {
@@ -13,6 +15,7 @@ const App = () => {
         // If seconds <= 0 : timer stop
         if (sec <= 0) {
           setStopTimer(true);
+          setBreakTime(true);
           return sec;
         }
         return sec - 1;
@@ -29,6 +32,11 @@ const App = () => {
       clearInterval(timerCountDown);
     };
   }, [stopTimer]);
+
+  let $modal;
+  if (breakTime) {
+    $modal = <BreakModal />;
+  }
 
   // TOGGLE: START - STOP
   const toggleTimer = () => {
@@ -81,6 +89,7 @@ const App = () => {
           decrementSeconds();
         }}
       />
+      {$modal}
     </div>
   );
 };
