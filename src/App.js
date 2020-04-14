@@ -3,9 +3,9 @@ import Buttons from "./components/buttons";
 import BreakModal from "./components/break-modal";
 
 const App = () => {
-  const [seconds, setSeconds] = useState(60 * 25);
+  const [seconds, setSeconds] = useState(60 * 0.05);
   const [stopTimer, setStopTimer] = useState(true);
-  const [breakTime, setBreakTime] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   let $breakModal;
 
@@ -17,7 +17,7 @@ const App = () => {
         // If seconds <= 0 : timer stop
         if (sec <= 0) {
           setStopTimer(true);
-          setBreakTime(true);
+          setShowModal(true);
           return sec;
         }
         return sec - 1;
@@ -37,10 +37,17 @@ const App = () => {
 
   // TOGGLE: START - STOP
   const toggleTimer = () => {
-    if (stopTimer) {
+    if (stopTimer && seconds > 0) {
       setStopTimer(false);
     } else {
       setStopTimer(true);
+    }
+
+    // The modal disappears if the seconds are greater than 0
+    if (seconds > 0) {
+      setShowModal(false);
+    } else {
+      setShowModal(true);
     }
   };
 
@@ -65,7 +72,7 @@ const App = () => {
   };
 
   // MODAL BREAK TIME
-  if (breakTime) {
+  if (showModal) {
     $breakModal = <BreakModal />;
   }
 
