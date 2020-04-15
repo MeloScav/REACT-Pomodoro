@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { createPortal } from "react-dom";
 
-const BreakModal = () => {
+const BreakModal = (props) => {
   const [secondsBreak, setSecondsBreak] = useState(60 * 5);
 
   // INCREMENTATION
@@ -44,8 +44,12 @@ const BreakModal = () => {
         </button>
       </div>
       <div>
-        <button type="button">{"Ok"}</button>
-        <button type="button">{"No thanks"}</button>
+        <button type="button" onClick={() => props.setBreakTimer(secondsBreak)}>
+          {"Ok"}
+        </button>
+        <button type="button" onClick={() => props.cancelBreakTimer()}>
+          {"No thanks"}
+        </button>
       </div>
     </div>,
     document.querySelector("#break-modal")

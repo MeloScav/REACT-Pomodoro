@@ -73,8 +73,27 @@ const App = () => {
 
   // MODAL BREAK TIME
   if (showModal) {
-    $breakModal = <BreakModal />;
+    $breakModal = (
+      <BreakModal
+        setBreakTimer={(secondsBreak) => setBreakModal(secondsBreak)}
+        cancelBreakTimer={() => cancelBreakTimer()}
+      />
+    );
   }
+
+  // MODAL
+  // IF OK: Recover the seconds of the modal + remove the modal + start the timer
+  const setBreakModal = (secondsBreak) => {
+    setSeconds(secondsBreak);
+    setShowModal(false);
+    setStopTimer(false);
+  };
+
+  //IF NO: Remove the modal and reset the minutes to 25
+  const cancelBreakTimer = () => {
+    setShowModal(false);
+    setSeconds(60 * 25);
+  };
 
   return (
     <div>
@@ -98,6 +117,7 @@ const App = () => {
           decrementSeconds();
         }}
       />
+      {/* {showModal ? <BreakModal /> : null} */}
       {$breakModal}
     </div>
   );
