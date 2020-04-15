@@ -7,8 +7,6 @@ const App = () => {
   const [stopTimer, setStopTimer] = useState(true);
   const [showModal, setShowModal] = useState(false);
 
-  let $breakModal;
-
   // COUNTDOWN
   const countdown = (interval) => {
     // If start : decrease seconds
@@ -71,16 +69,6 @@ const App = () => {
     setSeconds(60 * 25);
   };
 
-  // MODAL BREAK TIME
-  if (showModal) {
-    $breakModal = (
-      <BreakModal
-        setBreakTimer={(secondsBreak) => setBreakModal(secondsBreak)}
-        cancelBreakTimer={() => cancelBreakTimer()}
-      />
-    );
-  }
-
   // MODAL
   // IF OK: Recover the seconds of the modal + remove the modal + start the timer
   const setBreakModal = (secondsBreak) => {
@@ -117,8 +105,12 @@ const App = () => {
           decrementSeconds();
         }}
       />
-      {/* {showModal ? <BreakModal /> : null} */}
-      {$breakModal}
+      {showModal ? (
+        <BreakModal
+          setBreakTimer={(secondsBreak) => setBreakModal(secondsBreak)}
+          cancelBreakTimer={() => cancelBreakTimer()}
+        />
+      ) : null}
     </div>
   );
 };
