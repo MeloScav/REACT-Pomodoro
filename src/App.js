@@ -4,7 +4,7 @@ import Buttons from "./components/buttons";
 import BreakModal from "./components/break-modal";
 
 const App = () => {
-  const [seconds, setSeconds] = useState(60 * 0.1);
+  const [seconds, setSeconds] = useState(60 * 25);
   const [stopTimer, setStopTimer] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [breakTimer, setBreakTimer] = useState(false);
@@ -15,13 +15,9 @@ const App = () => {
     if (!stopTimer) {
       setSeconds((sec) => {
         // If seconds <= 0 : timer stop
-        if (sec <= 0 && !breakTimer) {
+        if (sec <= 0) {
           setStopTimer(true);
           setShowModal(true);
-          return sec;
-        } else if (sec <= 0 && breakTimer) {
-          setStopTimer(true);
-          setShowModal(false);
           return sec;
         }
         return sec - 1;
@@ -81,14 +77,23 @@ const App = () => {
     setSeconds(secondsBreak);
     setShowModal(false);
     setStopTimer(false);
-    setBreakTimer(true);
+    if (breakTimer) {
+      setBreakTimer(false);
+    } else {
+      setBreakTimer(true);
+    }
   };
 
   //IF NO: Remove the modal and reset the minutes to 25
   const cancelBreakTimer = () => {
     setShowModal(false);
-    setSeconds(60 * 25);
-    setBreakTimer(false);
+    if (breakTimer) {
+      setBreakTimer(true);
+      setSeconds(60 * 5);
+    } else {
+      setBreakTimer(false);
+      setSeconds(60 * 25);
+    }
   };
 
   return (
@@ -114,19 +119,10 @@ const App = () => {
         }}
       />
 
-      {seconds <= 0 && breakTimer ? (
-        <button
-          type="button"
-          onClick={() => {
-            cancelBreakTimer();
-          }}
-        >
-          {"Work timer"}
-        </button>
-      ) : null}
-
       {showModal ? (
         <BreakModal
+          secondsB={breakTimer ? 25 : 5}
+          value={breakTimer ? "It's time to work" : "Take a break"}
           setBreakTimer={(secondsBreak) => setBreakModal(secondsBreak)}
           cancelBreakTimer={() => cancelBreakTimer()}
         />
