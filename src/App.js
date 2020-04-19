@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Timer from "./components/timer";
 import Buttons from "./components/buttons";
 import BreakModal from "./components/break-modal";
 
@@ -85,11 +86,7 @@ const App = () => {
 
   return (
     <>
-      <h1>{`${Math.floor(seconds / 60)
-        .toString()
-        .padStart(2, "0")}:${`${seconds % 60}`
-        .toString()
-        .padStart(2, "0")}`}</h1>
+      <Timer second={seconds} />
       <Buttons
         addOnClick={() => {
           incrementSeconds();
