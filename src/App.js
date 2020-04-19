@@ -3,7 +3,7 @@ import Buttons from "./components/buttons";
 import BreakModal from "./components/break-modal";
 
 const App = () => {
-  const [seconds, setSeconds] = useState(60 * 0.05);
+  const [seconds, setSeconds] = useState(60 * 25);
   const [stopTimer, setStopTimer] = useState(true);
   const [showModal, setShowModal] = useState(false);
 
@@ -84,7 +84,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <>
       <h1>{`${Math.floor(seconds / 60)
         .toString()
         .padStart(2, "0")}:${`${seconds % 60}`
@@ -111,7 +111,7 @@ const App = () => {
           cancelBreakTimer={() => cancelBreakTimer()}
         />
       ) : null}
-    </div>
+    </>
   );
 };
 

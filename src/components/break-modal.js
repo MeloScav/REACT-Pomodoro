@@ -17,7 +17,7 @@ const BreakModal = (props) => {
   };
 
   return createPortal(
-    <div className={"break-container"}>
+    <>
       <h1>{"Take a break"}</h1>
       <div className={"break-timer"}>
         <button
@@ -51,7 +51,7 @@ const BreakModal = (props) => {
           {"No thanks"}
         </button>
       </div>
-    </div>,
+    </>,
     document.querySelector("#break-modal")
   );
 };
