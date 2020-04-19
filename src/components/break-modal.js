@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { createPortal } from "react-dom";
 
 const BreakModal = (props) => {
-  const [secondsBreak, setSecondsBreak] = useState(60 * 5);
+  const [secondsBreak, setSecondsBreak] = useState(60 * 0.2);
 
   // INCREMENTATION
   const incrementSeconds = () => {

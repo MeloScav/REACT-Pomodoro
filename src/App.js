@@ -4,9 +4,10 @@ import Buttons from "./components/buttons";
 import BreakModal from "./components/break-modal";
 
 const App = () => {
-  const [seconds, setSeconds] = useState(60 * 25);
+  const [seconds, setSeconds] = useState(60 * 0.1);
   const [stopTimer, setStopTimer] = useState(true);
   const [showModal, setShowModal] = useState(false);
+  const [breakTimer, setBreakTimer] = useState(false);
 
   // COUNTDOWN
   const countdown = (interval) => {
@@ -14,9 +15,13 @@ const App = () => {
     if (!stopTimer) {
       setSeconds((sec) => {
         // If seconds <= 0 : timer stop
-        if (sec <= 0) {
+        if (sec <= 0 && !breakTimer) {
           setStopTimer(true);
           setShowModal(true);
+          return sec;
+        } else if (sec <= 0 && breakTimer) {
+          setStopTimer(true);
+          setShowModal(false);
           return sec;
         }
         return sec - 1;
@@ -76,17 +81,23 @@ const App = () => {
     setSeconds(secondsBreak);
     setShowModal(false);
     setStopTimer(false);
+    setBreakTimer(true);
   };
 
   //IF NO: Remove the modal and reset the minutes to 25
   const cancelBreakTimer = () => {
     setShowModal(false);
     setSeconds(60 * 25);
+    setBreakTimer(false);
   };
 
   return (
     <>
-      <Timer second={seconds} />
+      <Timer
+        value={breakTimer ? "Break timer" : "Work timer"}
+        second={seconds}
+      />
+
       <Buttons
         addOnClick={() => {
           incrementSeconds();
@@ -102,6 +113,18 @@ const App = () => {
           decrementSeconds();
         }}
       />
+
+      {seconds <= 0 && breakTimer ? (
+        <button
+          type="button"
+          onClick={() => {
+            cancelBreakTimer();
+          }}
+        >
+          {"Work timer"}
+        </button>
+      ) : null}
+
       {showModal ? (
         <BreakModal
           setBreakTimer={(secondsBreak) => setBreakModal(secondsBreak)}
