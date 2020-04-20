@@ -17,7 +17,7 @@ const BreakModal = (props) => {
   };
 
   return createPortal(
-    <>
+    <div className={"break-container"}>
       <h1>{props.value}</h1>
       <div className={"break-timer"}>
         <button
@@ -43,7 +43,7 @@ const BreakModal = (props) => {
           {"-"}
         </button>
       </div>
-      <div>
+      <div className={"modal-buttons"}>
         <button type="button" onClick={() => props.setBreakTimer(secondsBreak)}>
           {"Ok"}
         </button>
@@ -51,7 +51,7 @@ const BreakModal = (props) => {
           {"No thanks"}
         </button>
       </div>
-    </>,
+    </div>,
     document.querySelector("#break-modal")
   );
 };
