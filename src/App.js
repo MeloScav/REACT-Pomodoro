@@ -100,21 +100,23 @@ const App = () => {
     <>
       <h1 className={"title"}>{breakTimer ? "Break timer" : "Work timer"}</h1>
 
-      <Timer second={seconds} />
-
-      <Buttons
+      <Timer
+        second={seconds}
         addOnClick={() => {
           incrementSeconds();
         }}
+        substractionOnClick={() => {
+          decrementSeconds();
+        }}
+      />
+
+      <Buttons
         toggleOnClick={() => {
           toggleTimer();
         }}
         value={stopTimer ? "Start" : "Stop"}
         resetOnClick={() => {
           resetTimer();
-        }}
-        substractionOnClick={() => {
-          decrementSeconds();
         }}
       />
 
