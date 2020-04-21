@@ -1,6 +1,10 @@
 .timer {
   display: flex;
   align-items: center;
+  // justify-content: center;
+  // background-color: #b88e8d;
+  // width: 100%;
+  // height: 40vh;
   h2 {
     font-size: calculateRem(90);
     padding: 0 calculateRem(15) 0 calculateRem(15);

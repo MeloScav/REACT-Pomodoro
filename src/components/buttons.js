@@ -1,13 +1,14 @@
 import React from "react";
+import ResetButtonSVG from "./SVG/reset-button-svg";
 
 const buttons = (props) => {
   return (
     <div className={"buttons"}>
       <button type="button" onClick={props.toggleOnClick}>
-        {props.value}
+        {props.svg} {props.value}
       </button>
       <button type="button" onClick={props.resetOnClick}>
-        {"Reset"}
+        <ResetButtonSVG /> {"Reset"}
       </button>
     </div>
   );

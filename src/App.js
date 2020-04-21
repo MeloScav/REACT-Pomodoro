@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Timer from "./components/timer";
 import Buttons from "./components/buttons";
 import BreakModal from "./components/break-modal";
+import PlayButtonSVG from "./components/SVG/play-button-svg";
+import PauseButtonSVG from "./components/SVG/pause-button-svg";
 
 const App = () => {
   const [seconds, setSeconds] = useState(60 * 0.05);
@@ -114,7 +116,8 @@ const App = () => {
         toggleOnClick={() => {
           toggleTimer();
         }}
-        value={stopTimer ? "Start" : "Stop"}
+        value={stopTimer ? "Start" : "Pause"}
+        svg={stopTimer ? <PlayButtonSVG /> : <PauseButtonSVG />}
         resetOnClick={() => {
           resetTimer();
         }}
