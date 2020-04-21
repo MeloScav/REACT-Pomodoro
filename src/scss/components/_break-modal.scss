@@ -13,6 +13,12 @@
   background-color: #b88e8d;
   border-radius: calculateRem(25);
 
+  //#34435e - #b88e8d - D8D2E1 - 60E1E0 - 6369D1
+
+  //#593c8f - #8ef9f3 - FFD9CE - 171738
+
+  //#610345 - #107e7d
+
   @media screen and(min-width:320px) {
     min-width: 80%;
   }
@@ -29,20 +35,30 @@
   .break-timer {
     display: flex;
     flex-direction: row;
+    align-items: center;
     h2 {
       padding: 0 calculateRem(10) 0 calculateRem(10);
       text-align: center;
+      font-size: calculateRem(40);
     }
     button {
-      padding: 0 calculateRem(5) 0 calculateRem(5);
+      padding: 0 calculateRem(10) 0 calculateRem(10);
       font-size: calculateRem(18);
+      background-color: transparent;
+      border: 1px solid black;
     }
   }
 
   .modal-buttons {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    // justify-content: space-evenly;
+    justify-content: space-around;
     width: 100%;
+    button {
+      padding: calculateRem(5) calculateRem(10) calculateRem(5) calculateRem(10);
+      background-color: transparent;
+      border: 1px solid black;
+    }
   }
 }
