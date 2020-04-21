@@ -3,4 +3,12 @@
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
+  button {
+    padding: calculateRem(10) calculateRem(20) calculateRem(10) calculateRem(20);
+    background-color: #b88e8d;
+    border: none;
+    border-radius: calculateRem(8);
+    font-size: calculateRem(18);
+    color: $white;
+  }
 }
