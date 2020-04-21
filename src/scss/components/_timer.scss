@@ -1,5 +1,14 @@
 .timer {
+  display: flex;
+  align-items: center;
   h2 {
     font-size: calculateRem(90);
+    padding: 0 calculateRem(10) 0 calculateRem(10);
+  }
+  button {
+    padding: 0 calculateRem(10) 0 calculateRem(10);
+    font-size: calculateRem(18);
+    background-color: transparent;
+    border: none;
   }
 }
