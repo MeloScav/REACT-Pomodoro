@@ -98,10 +98,9 @@ const App = () => {
 
   return (
     <>
-      <Timer
-        value={breakTimer ? "Break timer" : "Work timer"}
-        second={seconds}
-      />
+      <h1 className={"title"}>{breakTimer ? "Break timer" : "Work timer"}</h1>
+
+      <Timer second={seconds} />
 
       <Buttons
         addOnClick={() => {
