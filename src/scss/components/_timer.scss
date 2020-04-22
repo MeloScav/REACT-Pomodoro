@@ -1,19 +1,16 @@
 .timer {
   display: flex;
   align-items: center;
-  // justify-content: center;
-  // background-color: #b88e8d;
-  // width: 100%;
-  // height: 40vh;
   h2 {
-    font-size: calculateRem(90);
     padding: 0 calculateRem(15) 0 calculateRem(15);
+    font-size: calculateRem(90);
   }
   button {
     padding: calculateRem(10);
-    font-size: calculateRem(18);
-    background-color: #b88e8d;
     border: none;
     border-radius: 50%;
+    font-size: calculateRem(18);
+    background-color: #b88e8d;
+    cursor: pointer;
   }
 }

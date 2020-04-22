@@ -1,6 +1,7 @@
 import React from "react";
 
 const playButton = {
+  marginRight: "10px",
   width: "15px",
   height: "15px",
 };
