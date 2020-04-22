@@ -3,13 +3,15 @@
   align-items: center;
   h2 {
     padding: 0 calculateRem(15) 0 calculateRem(15);
-    font-size: calculateRem(90);
+    font-size: calculateRem(60);
+    @media screen and(min-width:425px) {
+      font-size: calculateRem(90);
+    }
   }
   button {
     padding: calculateRem(10);
     border: none;
     border-radius: 50%;
-    font-size: calculateRem(18);
     background-color: #b88e8d;
     cursor: pointer;
     .addButton,
@@ -17,8 +19,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: calculateRem(35);
-      height: calculateRem(35);
+      width: calculateRem(30);
+      height: calculateRem(30);
+      @media screen and(min-width:425px) {
+        width: calculateRem(35);
+        height: calculateRem(35);
+      }
     }
   }
 }
