@@ -1,13 +1,8 @@
 import React from "react";
 
-const addButton = {
-  width: "35px",
-  height: "35px",
-};
-
 const AddButtonSVG = () => {
   return (
-    <div>
+    <>
       <svg
         version="1.1"
         id="Capa_1"
@@ -15,7 +10,7 @@ const AddButtonSVG = () => {
         x="0px"
         y="0px"
         viewBox="0 0 357 357"
-        style={addButton}
+        className={"addButton"}
       >
         <g>
           <g id="add">
@@ -26,7 +21,7 @@ const AddButtonSVG = () => {
           </g>
         </g>
       </svg>
-    </div>
+    </>
   );
 };
 

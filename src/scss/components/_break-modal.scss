@@ -46,6 +46,14 @@
       font-size: calculateRem(18);
       background-color: transparent;
       border: 1px solid black;
+      .addButton,
+      .minusButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: calculateRem(20);
+        height: calculateRem(20);
+      }
     }
   }
 
