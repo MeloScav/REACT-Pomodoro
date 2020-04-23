@@ -8,7 +8,7 @@ const playButton = {
 
 const PlayButtonSVG = () => {
   return (
-    <div>
+    <>
       <svg
         version="1.1"
         id="Layer_1"
@@ -29,7 +29,7 @@ const PlayButtonSVG = () => {
           </g>
         </g>
       </svg>
-    </div>
+    </>
   );
 };
 

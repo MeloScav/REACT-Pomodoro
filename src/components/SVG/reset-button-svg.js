@@ -8,7 +8,7 @@ const resetButton = {
 
 const ResetButtonSVG = () => {
   return (
-    <div>
+    <>
       <svg
         version="1.1"
         id="Capa_1"
@@ -33,7 +33,7 @@ const ResetButtonSVG = () => {
           </g>
         </g>
       </svg>
-    </div>
+    </>
   );
 };
 

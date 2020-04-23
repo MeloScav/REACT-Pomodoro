@@ -6,11 +6,20 @@
   button {
     display: flex;
     padding: calculateRem(10) calculateRem(20) calculateRem(10) calculateRem(20);
-    border: none;
+    border: 3px solid $secondary;
     border-radius: calculateRem(8);
-    background-color: #b88e8d;
+    background-color: $secondary;
     color: $white;
     font-size: calculateRem(18);
     cursor: pointer;
+
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      background-color: $secondaryLight;
+    }
   }
 }

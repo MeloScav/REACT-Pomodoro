@@ -8,7 +8,7 @@ const pauseButton = {
 
 const PauseButtonSVG = () => {
   return (
-    <div>
+    <>
       <svg
         version="1.1"
         id="Capa_1"
@@ -37,7 +37,7 @@ const PauseButtonSVG = () => {
           </g>
         </g>
       </svg>
-    </div>
+    </>
   );
 };
 

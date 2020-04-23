@@ -12,8 +12,18 @@
     padding: calculateRem(10);
     border: none;
     border-radius: 50%;
-    background-color: #b88e8d;
+    background-color: $secondary;
+
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
     cursor: pointer;
+
+    &:hover {
+      background-color: $secondaryLight;
+    }
+
     .addButton,
     .minusButton {
       display: flex;
