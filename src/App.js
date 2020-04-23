@@ -6,7 +6,7 @@ import PlayButtonSVG from "./components/SVG/play-button-svg";
 import PauseButtonSVG from "./components/SVG/pause-button-svg";
 
 const App = () => {
-  const [seconds, setSeconds] = useState(60 * 25);
+  const [seconds, setSeconds] = useState(60 * 0.05);
   const [stopTimer, setStopTimer] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [breakTimer, setBreakTimer] = useState(false);
