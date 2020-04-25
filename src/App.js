@@ -7,7 +7,7 @@ import PauseButtonSVG from "./components/SVG/pause-button-svg";
 import Alarm from "./assets/mon-audio.mp3";
 
 const App = () => {
-  const [seconds, setSeconds] = useState(60 * 0.05);
+  const [seconds, setSeconds] = useState(60 * 25);
   const [stopTimer, setStopTimer] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [breakTimer, setBreakTimer] = useState(false);
