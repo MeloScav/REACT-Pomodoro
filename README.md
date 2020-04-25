@@ -1,6 +1,6 @@
 # React-pomodoro
 
-Here is a pomodoro made with react.  
+Here is a pomodoro made with React.  
 It allows you to manage working time and break time.
 
 ## Use
