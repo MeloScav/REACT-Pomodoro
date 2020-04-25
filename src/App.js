@@ -4,22 +4,28 @@ import Buttons from "./components/buttons";
 import BreakModal from "./components/break-modal";
 import PlayButtonSVG from "./components/SVG/play-button-svg";
 import PauseButtonSVG from "./components/SVG/pause-button-svg";
+import Alarm from "./assets/mon-audio.mp3";
 
 const App = () => {
-  const [seconds, setSeconds] = useState(60 * 25);
+  const [seconds, setSeconds] = useState(60 * 0.05);
   const [stopTimer, setStopTimer] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [breakTimer, setBreakTimer] = useState(false);
+
+  // AUDIO: we create an audio to use it after
+  let timerAlarm = new Audio(Alarm);
 
   // COUNTDOWN
   const countdown = (interval) => {
     // If start : decrease seconds
     if (!stopTimer) {
       setSeconds((sec) => {
-        // If seconds <= 0 : timer stop
+        // If seconds <= 0 : timer stop and sound the alarm
         if (sec <= 0) {
           setStopTimer(true);
+          timerAlarm.play();
           setShowModal(true);
+
           return sec;
         }
         return sec - 1;
